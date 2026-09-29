@@ -33,77 +33,7 @@ if (phoneReveal) {
   });
 }
 
-const callbackToggle = document.getElementById('callback-toggle');
-const callbackForm = document.getElementById('callback-form');
-const callbackModal = document.getElementById('callback-modal');
-const callbackClose = document.getElementById('callback-close');
-
-if (callbackToggle && callbackModal) {
-  callbackToggle.addEventListener('click', () => {
-    openCallbackModal();
-  });
-}
-
-if (callbackClose && callbackModal) {
-  callbackClose.addEventListener('click', () => {
-    callbackModal.close();
-  });
-}
-
-if (callbackModal) {
-  callbackModal.addEventListener('click', (e) => {
-    if (e.target === callbackModal) callbackModal.close();
-  });
-}
-
-const callbackSuccess = document.getElementById('callback-success');
-const cbName = document.getElementById('cb-name');
-const cbPhone = document.getElementById('cb-phone');
-const cbSubmit = document.getElementById('callback-submit');
-
-const isCallbackFormValid = () =>
-  Boolean(cbName && cbPhone && cbName.value.trim().length > 0 && /^[0-9]{7,15}$/.test(cbPhone.value.trim()));
-
-if (cbName && cbPhone && cbSubmit) {
-  const updateSubmitState = () => {
-    cbSubmit.disabled = !isCallbackFormValid();
-  };
-
-  cbName.addEventListener('input', updateSubmitState);
-  cbPhone.addEventListener('input', updateSubmitState);
-  updateSubmitState();
-}
-
-if (callbackModal) {
-  callbackModal.addEventListener('close', () => {
-    callbackForm.reset();
-    callbackSuccess.hidden = true;
-    cbSubmit.disabled = true;
-  });
-}
-
-if (callbackForm) {
-  callbackForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    if (!isCallbackFormValid()) return;
-
-    const name = callbackForm['cb-name'].value;
-    const phone = `${callbackForm['cb-phone-code'].value} ${callbackForm['cb-phone'].value}`;
-
-    const subject = `Callback request from ${name}`;
-    const body = `Name: ${name}\nPhone: ${phone}`;
-
-    window.location.href =
-      `mailto:info@avdancestudio.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    callbackForm.reset();
-    cbSubmit.disabled = true;
-    callbackSuccess.hidden = false;
-  });
-}
-
-/* Fading music notes: shared by the cursor trail and the callback popup entrance */
+/* Fading music notes: shared by the cursor trail and any future popup entrances */
 const NOTE_CHARS = ['♪', '♫'];
 let noteIndex = 0;
 
@@ -142,43 +72,4 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
 
     spawnNote(x, y);
   });
-}
-
-/* Callback popup: slide in from the right, trailing music notes, settle centred */
-function openCallbackModal() {
-  const startX = window.innerWidth;
-  const duration = 650;
-  const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
-
-  callbackModal.style.transform = `translateX(${startX}px)`;
-  callbackModal.showModal();
-
-  const startTime = performance.now();
-  let lastSpawnX = null;
-
-  const step = (now) => {
-    const elapsed = now - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = easeOutCubic(progress);
-    const offset = startX * (1 - eased);
-
-    callbackModal.style.transform = `translateX(${offset}px)`;
-
-    const rect = callbackModal.getBoundingClientRect();
-    if (lastSpawnX === null || Math.abs(rect.right - lastSpawnX) > 8) {
-      for (let i = 0; i < 3; i++) {
-        const y = rect.top + Math.random() * rect.height;
-        spawnNote(rect.right, y, 30);
-      }
-      lastSpawnX = rect.right;
-    }
-
-    if (progress < 1) {
-      requestAnimationFrame(step);
-    } else {
-      callbackModal.style.transform = 'translateX(0)';
-    }
-  };
-
-  requestAnimationFrame(step);
 }

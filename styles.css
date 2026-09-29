@@ -456,12 +456,6 @@ h1, h2, h3, p { font-family: var(--font); font-weight: 400; }
 
 .cta-info p { font-size: 16px; line-height: 1.6em; margin-bottom: 16px; color: var(--black); }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 /* Phone reveal / callback request */
 .contact-options {
   flex: 1 1 50%;
@@ -513,106 +507,6 @@ h1, h2, h3, p { font-family: var(--font); font-weight: 400; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--brown);
-}
-
-/* Callback popup */
-dialog#callback-modal {
-  position: fixed;
-  border: none;
-  padding: 40px 36px;
-  max-width: 420px;
-  width: 90%;
-  background: var(--cream);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-}
-
-dialog#callback-modal::backdrop {
-  background: rgba(0, 0, 0, 0.55);
-}
-
-.modal-close {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  background: none;
-  border: none;
-  font-size: 28px;
-  line-height: 1;
-  color: var(--brown);
-  cursor: pointer;
-}
-
-.modal-close:hover { color: var(--copper); }
-
-.modal-title {
-  font-size: 26px;
-  font-weight: 400;
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-.callback-form { margin-top: 0; }
-
-.field { display: flex; flex-direction: column; gap: 6px; }
-
-.field label { font-size: 14px; color: var(--black); }
-
-.required { color: var(--copper); margin-left: 2px; }
-
-.field input,
-.field select,
-.field textarea {
-  font-family: var(--font-nav);
-  font-size: 16px;
-  padding: 12px;
-  border: 1px solid var(--black);
-  background: var(--cream);
-  color: var(--black);
-}
-
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
-  outline: none;
-  border-width: 2px;
-}
-
-.field textarea { min-height: 100px; resize: vertical; }
-
-.phone-input { display: flex; }
-
-.phone-input select {
-  flex: 0 0 auto;
-  width: auto;
-  border-right: none;
-  padding-right: 6px;
-}
-
-.phone-input input {
-  flex: 1 1 auto;
-  min-width: 0;
-  border-left: none;
-}
-
-.contact-form .btn { align-self: center; }
-
-.btn:disabled {
-  background: var(--gray);
-  border-color: var(--gray);
-  color: var(--brown);
-  cursor: not-allowed;
-}
-
-.btn:disabled:hover {
-  background: var(--gray);
-  color: var(--brown);
-}
-
-.form-success {
-  text-align: center;
-  color: var(--success);
-  font-size: 21px;
-  margin-top: 8px;
 }
 
 /* Footer */

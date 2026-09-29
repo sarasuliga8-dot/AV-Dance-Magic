@@ -108,42 +108,18 @@
             Tap to reveal number
           </span>
           <span class="callback-divider">or</span>
-          <button type="button" class="btn contact-btn" id="callback-toggle">Request a Callback</button>
+          <button
+            type="button"
+            class="btn contact-btn"
+            data-tally-open="xXOp7r"
+            data-tally-align-left="1"
+            data-tally-overlay="1"
+            data-tally-emoji-animation="wave"
+          >Request a Callback</button>
         </div>
       </div>
     </div>
   </div>
-
-  <dialog id="callback-modal">
-    <button type="button" class="modal-close" id="callback-close" aria-label="Close">&times;</button>
-    <h2 class="modal-title">Request a Callback</h2>
-    <form class="contact-form callback-form" id="callback-form">
-      <div class="field">
-        <label for="cb-name">Your Name <span class="required" aria-hidden="true">*</span></label>
-        <input type="text" id="cb-name" name="cb-name" required maxlength="100" autocomplete="off">
-      </div>
-      <div class="field">
-        <label for="cb-phone">Your Phone Number <span class="required" aria-hidden="true">*</span></label>
-        <div class="phone-input">
-          <select id="cb-phone-code" name="cb-phone-code" aria-label="Country code">
-            <option value="+44" selected>+44 (UK)</option>
-            <option value="+353">+353 (IE)</option>
-            <option value="+1">+1 (US/CA)</option>
-            <option value="+33">+33 (FR)</option>
-            <option value="+49">+49 (DE)</option>
-            <option value="+34">+34 (ES)</option>
-            <option value="+39">+39 (IT)</option>
-            <option value="+48">+48 (PL)</option>
-            <option value="+91">+91 (IN)</option>
-            <option value="+61">+61 (AU)</option>
-          </select>
-          <input type="tel" id="cb-phone" name="cb-phone" placeholder="e.g. 7717380266" required maxlength="15" autocomplete="off">
-        </div>
-      </div>
-      <button type="submit" class="btn" id="callback-submit" disabled>Send request</button>
-      <p class="form-success" id="callback-success" hidden>Thanks! We've got your number and will call you back as soon as possible.</p>
-    </form>
-  </dialog>
 </section>
 
 <footer class="site-footer">
@@ -160,6 +136,7 @@
   </div>
 </footer>
 
+<script async src="https://tally.so/widgets/embed.js"></script>
 <script src="script.js" defer></script>
 </body>
 </html>
