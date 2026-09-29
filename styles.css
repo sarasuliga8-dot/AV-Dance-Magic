@@ -4,6 +4,8 @@
   --cream: #FFF8F1;
   --brown: #5B4D43;
   --copper: #805844;
+  --gold: #C9A227;
+  --crimson: #6E0D25;
   --tan: #E0BE9A;
   --box-bg: rgba(224, 190, 154, 0.8);
   --black: #000000;
@@ -26,6 +28,34 @@ body {
   color: var(--black);
   background: var(--cream);
   line-height: 1.4em;
+}
+
+/* Custom cursor trail: fading music notes */
+.cursor-note {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--copper);
+  animation: note-fade 900ms ease-out forwards;
+}
+
+@keyframes note-fade {
+  0% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) rotate(var(--note-rot, 0deg)) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--note-rot, 0deg)) translateY(-16px) scale(0.8);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-note { display: none; }
 }
 
 img { max-width: 100%; display: block; }
@@ -427,16 +457,107 @@ h1, h2, h3, p { font-family: var(--font); font-weight: 400; }
 .cta-info p { font-size: 16px; line-height: 1.6em; margin-bottom: 16px; color: var(--black); }
 
 .contact-form {
-  flex: 1 1 50%;
-  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
+/* Phone reveal / callback request */
+.contact-options {
+  flex: 1 1 50%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-buttons-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: 10px;
+  width: 300px;
+  max-width: 100%;
+  font-family: var(--font-nav);
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  padding: 16px 36px;
+  margin-top: 0;
+}
+
+.phone-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.phone-link {
+  display: inline-block;
+  color: var(--black);
+  font-size: 20px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--copper);
+}
+
+.phone-link:hover { color: var(--copper); }
+
+.callback-divider {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brown);
+}
+
+/* Callback popup */
+dialog#callback-modal {
+  position: fixed;
+  border: none;
+  padding: 40px 36px;
+  max-width: 420px;
+  width: 90%;
+  background: var(--cream);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+dialog#callback-modal::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--brown);
+  cursor: pointer;
+}
+
+.modal-close:hover { color: var(--copper); }
+
+.modal-title {
+  font-size: 26px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.callback-form { margin-top: 0; }
+
 .field { display: flex; flex-direction: column; gap: 6px; }
 
 .field label { font-size: 14px; color: var(--black); }
+
+.required { color: var(--copper); margin-left: 2px; }
 
 .field input,
 .field select,
@@ -458,7 +579,34 @@ h1, h2, h3, p { font-family: var(--font); font-weight: 400; }
 
 .field textarea { min-height: 100px; resize: vertical; }
 
+.phone-input { display: flex; }
+
+.phone-input select {
+  flex: 0 0 auto;
+  width: auto;
+  border-right: none;
+  padding-right: 6px;
+}
+
+.phone-input input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border-left: none;
+}
+
 .contact-form .btn { align-self: center; }
+
+.btn:disabled {
+  background: var(--gray);
+  border-color: var(--gray);
+  color: var(--brown);
+  cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+  background: var(--gray);
+  color: var(--brown);
+}
 
 .form-success {
   text-align: center;
@@ -570,7 +718,7 @@ h1, h2, h3, p { font-family: var(--font); font-weight: 400; }
   .section-intro { font-size: 16px; }
 
   .cta-panel-grid { flex-direction: column; gap: 40px; }
-  .cta-info, .contact-form { flex-basis: auto; }
+  .cta-info, .contact-options { flex-basis: auto; }
 
   .footer-grid { flex-direction: column; text-align: center; }
 }
