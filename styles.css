@@ -528,6 +528,14 @@ h1, h2, h3, p { font-family: var(--font); font-weight: 400; }
 
 .footer-contact p { font-size: 16px; margin-bottom: 6px; }
 
+.footer-phone-reveal {
+  cursor: pointer;
+  border-bottom: 1px dashed var(--cream);
+  transition: opacity 0.2s ease;
+}
+
+.footer-phone-reveal:hover { opacity: 0.75; }
+
 .footer-social img { width: 36px; height: 36px; }
 
 /* Shrink the sticky header on short viewports so it doesn't eat the screen */

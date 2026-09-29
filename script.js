@@ -33,6 +33,23 @@ if (phoneReveal) {
   });
 }
 
+document.querySelectorAll('.footer-phone-reveal').forEach((el) => {
+  const revealFooterPhone = () => {
+    const link = document.createElement('a');
+    link.href = 'tel:+447717380266';
+    link.textContent = '+44 7717 380266';
+    el.replaceWith(link);
+  };
+
+  el.addEventListener('click', revealFooterPhone);
+  el.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      revealFooterPhone();
+    }
+  });
+});
+
 /* Fading music notes: shared by the cursor trail and any future popup entrances */
 const NOTE_CHARS = ['♪', '♫'];
 let noteIndex = 0;
