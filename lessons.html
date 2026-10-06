@@ -22,20 +22,29 @@
   "url": "https://www.avdancestudio.co.uk",
   "telephone": "+447717380266",
   "email": "info@avdancestudio.co.uk",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "St Katharine's Greek Orthodox Church",
-    "addressLocality": "North Finchley",
-    "postalCode": "N20 0NL",
-    "addressCountry": "GB"
-  },
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "St Katharine's Greek Orthodox Church",
+      "addressLocality": "North Finchley",
+      "postalCode": "N20 0NL",
+      "addressCountry": "GB"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Blue Print",
+      "addressLocality": "North Finchley",
+      "postalCode": "N20 0PT",
+      "addressCountry": "GB"
+    }
+  ],
   "areaServed": ["North Finchley", "North London", "London", "Barnet", "Finchley"],
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       "opens": "10:00",
-      "closes": "21:00"
+      "closes": "22:00"
     }
   ],
   "priceRange": "££",
@@ -56,8 +65,9 @@
   "areaServed": "North Finchley",
   "offers": [
     { "@type": "Offer", "name": "Consultation Lesson", "price": "20", "priceCurrency": "GBP" },
-    { "@type": "Offer", "name": "Couple Beginner Lesson", "price": "25", "priceCurrency": "GBP" },
-    { "@type": "Offer", "name": "Wedding Package (3 lessons)", "price": "180", "priceCurrency": "GBP" }
+    { "@type": "Offer", "name": "Couple Beginner Lesson", "price": "60", "priceCurrency": "GBP" },
+    { "@type": "Offer", "name": "Wedding Package (4 lessons)", "price": "200", "priceCurrency": "GBP" },
+    { "@type": "Offer", "name": "Spotlight - Party Evening", "description": "Once a month - additional pricing" }
   ]
 }
 </script>
@@ -76,7 +86,6 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="lessons.html" class="active">Lessons</a></li>
-        <li><a href="other-services.html">Children</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="getting-started.html">Getting Started</a></li>
       </ul>
@@ -89,7 +98,6 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="lessons.html" class="active">Lessons</a></li>
-      <li><a href="other-services.html">Children</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="getting-started.html">Getting Started</a></li>
     </ul>
@@ -102,27 +110,37 @@
     <p class="section-intro">From your first beginner steps to advanced ballroom and Latin technique, our North Finchley studio offers lessons for every stage of your dancing journey.</p>
     <div class="rows">
       <div class="row-card">
-        <img src="images/intro-lesson.webp" width="1086" height="1448" loading="lazy" alt="New students taking an introductory dance lesson at AV Dance Studio, North Finchley">
+        <img src="images/consultation.classes.webp" width="1504" height="2016" loading="lazy" alt="New students taking a consultation dance lesson at AV Dance Studio, North Finchley">
         <div class="row-content">
           <h3 class="card-title">Consultation lesson</h3>
-          <p>Start dancing today with our £20 New Student Introductory offer</p>
+          <p>Start dancing today with our £20, 45 minute consultation class for beginners!</p>
           <a href="getting-started.html" class="btn">Book now!</a>
         </div>
       </div>
       <div class="row-card">
-        <img src="images/lesson-newstudents.webp" width="1368" height="1824" loading="lazy" alt="Beginner couple practicing ballroom dance steps">
+        <img src="images/sample.webp" width="1200" height="1600" loading="lazy" alt="Beginner couple practicing ballroom dance steps" class="crop-center">
         <div class="row-content">
-          <h3 class="card-title">New Students offer</h3>
-          <p>£20 - Single Beginner Dance Lesson</p>
-          <p>£25 - Couple Beginner Dance Lesson</p>
+          <h3 class="card-title">Standard Lessons</h3>
+          <p class="card-subtext">(basic, foundation and bronze levels)</p>
+          <p>£55 - Single Beginner Dance Lesson</p>
+          <p>£60 - Couple Beginner Dance Lesson</p>
           <a href="getting-started.html" class="btn">Book now!</a>
         </div>
       </div>
       <div class="row-card">
-        <img src="images/lesson-wedding.webp" width="539" height="960" loading="lazy" alt="Rehearsing the wedding first dance">
+        <img src="images/wedding-lessons.webp" width="1124" height="1569" loading="lazy" alt="Rehearsing the wedding first dance">
         <div class="row-content">
           <h3 class="card-title">Wedding Packages</h3>
-          <p>Get 3 personal lessons for £180!</p>
+          <p>Get 4 personal lessons for £200!</p>
+          <a href="getting-started.html" class="btn">Book now!</a>
+        </div>
+      </div>
+      <div class="row-card">
+        <img src="images/spotlight.webp" width="1200" height="1600" loading="lazy" alt="Guests celebrating at a Spotlight party evening at AV Dance Studio" class="crop-center">
+        <div class="row-content">
+          <h3 class="card-title">Spotlight - Party Evening</h3>
+          <p>Once a month</p>
+          <p>Additional pricing</p>
           <a href="getting-started.html" class="btn">Book now!</a>
         </div>
       </div>
@@ -137,6 +155,7 @@
       <p><span class="footer-phone-reveal" role="button" tabindex="0">Reveal phone number</span></p>
       <p><a href="mailto:vladimirsemov848@gmail.com">vladimirsemov848@gmail.com</a></p>
       <p>St Katharine's Greek Orthodox Church, North Finchley, N20 0NL</p>
+      <p>Blue Print, N20 0PT</p>
     </div>
     <a href="https://www.facebook.com/avdancemagic" target="_blank" rel="noopener" class="footer-social">
       <img src="images/facebook.webp" width="201" height="201" loading="lazy" alt="AV Dance Studio on Facebook">
