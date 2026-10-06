@@ -521,7 +521,7 @@ h1, h2, h3, p { font-family: var(--font); font-weight: 400; }
 /* Responsive */
 @media (max-width: 600px) {
   .row-card { flex-direction: column; height: auto; }
-  .row-card img { width: 100%; flex-basis: auto; height: 180px; }
+  .row-card img { width: 100%; flex-basis: auto; height: 280px; }
   .row-content { padding: 16px; justify-content: flex-start; }
 }
 
